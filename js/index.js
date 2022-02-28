@@ -2106,34 +2106,23 @@ console.log("");
 
 
 alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
 
 
 
 
 
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan");
-alert("nshan22");
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
