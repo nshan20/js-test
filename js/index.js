@@ -2083,8 +2083,20 @@
 // }
 // f();
 
+//--------------------------------------------------------------
 
-
+// let Flsent = false;
+// try {
+//     if (!Flsent){
+//         Flsent = true;
+//     }
+// }catch (error){
+//     console.log("oshibka obrabotki zaprosa");
+// }finally {
+//     Flsent = false;
+// }
+// console.log(Flsent);
+//----------------------------------------------------------------
 
 
 
