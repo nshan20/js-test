@@ -22,3 +22,25 @@ mark{
 .test{
     background: none;
 }
+.message-ball {
+    font-size: 20px;
+    line-height: 200px;
+    text-align: center;
+}
+.circle {
+    transition-property: width, height, margin-left, margin-top;
+    transition-duration: 2s;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: red;
+    border-radius: 50%;
+}
+.raznzit{
+    ttransition-property: width, height, margin-left, margin-top;
+    transition-duration: 2s;
+    width: 100px;
+    height: 100px;
+    background: black;
+    position: absolute;
+
+}

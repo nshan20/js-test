@@ -2098,35 +2098,416 @@
 // console.log(Flsent);
 //--------------------------------------------------------------
 
-alert("");
-console.log("");
+// class ValidationError extends Error{
+//     constructor(message) {
+//         super(message);
+//         this.name = "ValidationError";
+//     }
+// }
+// function test(){
+//     throw new ValidationError("ups!!!!!!!");
+// }
+//
+// try {
+//     test();
+// }catch (err){
+//     console.log(err.message);
+//     console.log(err.name);
+//     console.log(err.stack);
+// }
+//------------------------------------------------------------
+// class FormatError extends SyntaxError{
+//     constructor(message) {
+//         super(message);
+//         this.name = "FormatError";
+//     }
+// }
+//
+// let err = new FormatError("ошибка форматирования");
+//
+// console.log( err.message ); // ошибка форматирования
+// console.log( err.name ); // FormatError
+// console.log( err.stack ); // stack
+//
+// console.log( err instanceof FormatError ); // true
+// console.log( err instanceof SyntaxError ); // true (потому что наследует от SyntaxError)
+//--------------------------------------------------------------------------------
+//=====================Промисы, async/await======================
+//=====================Введение: колбэки=========================
+// sortavorum ciklerov
+// let arr = [
+// 	{name: "alur", gin: 10},
+// 	{name: "bribc", gin: 20},
+// 	{name: "kat", gin: 40},
+// 	{name: "vosp", gin: 30},
+// ];
+//
+// function hashvark(){
+// 	for (let i = 0; i<arr.length; i++){
+// 		for (let j = i+1; j <arr.length; j++){
+// 			if (arr[i].gin > arr[j].gin){
+// 				const sum = arr[i];
+// 				arr[i] = arr[j];
+// 				arr[j] = sum;
+// 			}
+// 		}
+// 	}
+//
+// }
+// hashvark();
+// console.log(arr);
+
+
+// function go() {
+//     showCircle(150, 150, 100, div => {
+//         div.classList.add('message-ball');
+//         div.append("Hello, world!");
+//     });
+// }
+//
+// function showCircle(cx, cy, radius, callback) {
+//     let div = document.createElement('div');
+//     div.style.width = 0;
+//     div.style.height = 0;
+//     div.style.left = cx + 'px';
+//     div.style.top = cy + 'px';
+//     div.className = 'circle';
+//     document.body.append(div);
+//
+//     setTimeout(() => {
+//         div.style.width = radius * 2 + 'px';
+//         div.style.height = radius * 2 + 'px';
+//         div.style.background = "green";
+//
+//         div.addEventListener('transitionend', function handler() {
+//             div.removeEventListener('transitionend', handler);
+//             callback(div);
+//             console.log(div);
+//             console.log(callback);
+//         });
+//     });
+// }
+// //----------------------------------------------------------------------------------------
+// let raznzit = document.querySelector(".raznzit");
+// raznzit.addEventListener("mouseover",()=>goFank());
+//
+// function goFank(){
+//     transit(
+//         raznzit=>{
+//             raznzit.style.color= "red";
+//             raznzit.innerHTML = "nshan";
+//             raznzit.classList.add('message-ball');
+//             raznzit.append("Hello, world!");
+//         }
+//     );
+// }
+//
+// function transit(callback){
+//         raznzit = document.createElement('div');
+//         raznzit.className = 'raznzit';
+//         document.body.append(raznzit);
+//     setTimeout(() => {
+//         raznzit.style.width = 200+"px";
+//         raznzit.style.height = 200+"px";
+//         raznzit.style.position= "absolute";
+//
+//         setTimeout(()=>{callback(raznzit);},2000);
+//     });
+//
+// }
+
+// ================= Промисы =================================
+
+// function f(val){
+//     return  new Promise(function(resolve, reject) {
+//         setTimeout(()=>{
+//             resolve(val + 8);
+//             // reject("vay vay");
+//         },2000);
+//     });
+// }
+//
+//
+// let promise = new Promise(function(resolve, reject) {
+//     setTimeout(()=>{
+//         resolve(8);
+//         // reject("vay vay");
+//     },2000);
+// });
+//
+// promise.then(function (e){
+//     return e + 1;
+// }).then(function (e){
+//    return f(e);
+// }).then(function (e){
+//     console.log(e);
+// }).catch(function (eror){
+//     console.log(eror);
+// });
+
+// promise.catch(function (e){
+//    console.log(e);
+// });
+
+//-------------------------------tnayin ashxatank-----------
+// function delay(ms) {
+//     // ваш код
+//     return new Promise(function (resolve, reject){
+//         setTimeout(resolve, ms);
+//     })
+// }
+//
+// delay(3000).then(() => alert('выполнилось через 3 секунды'));
+//-------------------------------tnayin ashxatank----------------
+//==========================Promise API =========================
+
+// Promise.all([
+//     fetch("https://jsonplaceholder.typicode.com/todos/1"), // 1
+//     new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
+//     new Promise(resolve => setTimeout(() => resolve(3), 1000))  // 3
+// ]).then(a=>{
+//     return a[0].json();
+// }).then(tabl =>{
+//     console.log(tabl);
+// });
+
+// ==================Async/await ==========================
+// function f1() {
+//     return new Promise(function (resolve, reject){
+//         fetch("https://jsonplaceholder.typicode.com/todos/1")
+//             .then(function (res){
+//                 return res.json();
+//             })
+//             .then(function (res){
+//                 resolve(res);
+//             });
+//     })
+//
+// }
+//
+// async function f() {
+//     let sum = await f1();
+//     return sum.id + 10;
+// }
+//
+// f().then(function (result){
+//     console.log(result);
+// }).catch(function (e){
+//     console.log(e);
+// });
+
+//---------------------------------------------------------------
+
+// async function f(){
+//     let result = await fetch("https://jsonplaceholder.typicode.com/todos/",{
+//         method: "GET",
+//     });
+//     return await result.json();
+// }
+//
+// // f().then(data =>{
+// //     console.log(data);
+// // });
+//
+// async function f2(){
+//     console.log(await f());
+// }
+// f2();
+
+//==============================================================================================
+
+//masivi mec tiv@
+// let arr = [0,1,2,30,4,5,6];
+//
+//
+// function f(arr) {
+//     let sum = arr[0];
+//     for (let i = 0; i < arr.length; i++){
+//         if (sum < arr[i]){
+//              sum = arr[i];
+//         }
+//     }
+// }
+// console.log(f(arr));
+
+// masivi sortavorum
+// let arr = [0,1,2,30,4,5,6];
+//
+// function f(arr) {
+//     for (let i = 0; i<arr.length; i++){
+//         for (let j = i; j<arr.length ; j++){
+//             if (arr[i] > arr[j]){
+//                 [arr[i], arr[j]] = [arr[j], arr[i]];
+//             }
+//         }
+//     }
+//     console.log(arr);
+// }
+// f(arr);
+
+// ========================reduce======================
+// let arr = [1,2,-30,4,5,6];
+// let sum = 0;
+//
+// function reduce(arr) {
+//     return arr.reduce(function (prev, itme , index) {
+//         // console.log(prev, "prev");
+//         // console.log(itme, "itme");
+//         // console.log(index, "index");
+//
+//         //tveri @ndhanur gumar-------
+//         //  sum += itme;
+//         //tveri @ndhanur gumari verj--------
+//
+//         //---mec u pokr tver--
+//         // if (prev < itme) {
+//         //     return itme;
+//         // } else {
+//         //     return prev;
+//         // }
+//         //---mec u pokr tveri-verj
+//
+//         // if (prev[0] < itme) {
+//         //     return [itme, index];
+//         // } else {
+//         //     return prev;
+//         // }
+//     },[0, arr[0]]);
+// }
+//
+// // reduce(arr);
+// // console.log(reduce(arr));
+// // console.log(sum);
+
+//-----------------------------
+
+// let a = [[123],[345],[567]];
+// let sum= [];
+//
+// let b = a.reduce(function (prev, itme , index) {
+//     // sum.push(...itme);
+//     // return sum;
+//     //-----0)----/|\-------
+//     return prev.concat(itme);
+// });
+// console.log(b);
+
+//=======================api ====================
+
+// let arr = [];
+//
+// async function api() {
+//     return fetch("https://jsonplaceholder.typicode.com/todos/");
+// }
+//
+// api().then(function (data){
+//     return data.json();
+// }).then((data)=>{
+//     // console.log(data);
+//     for (let i = 0; i< data.length; i++){
+//         arr.push(data[i]);
+//     }
+//     console.log(...arr);
+// });
+//
+//
+// async function apiDelete(id, newPublication) {
+//     fetch(`https://jsonplaceholder.typicode.com/todos/${id}`,{
+//         method:"PUT",
+//         headers: {'Content-Type': 'application/json'},
+//         body: JSON.stringify(newPublication)
+//     })
+//         .then(response => response.json())
+//         .then(function (json){
+//             console.log(json);
+//         } )
+// }
+// apiDelete( 1,{"title": "valod"});
+
+
+//===================rekursia===================
+// function prw(x, n){
+//     if (n === 1){
+//         return x;
+//     }else {
+//         console.log(x, "prw(x, n - 1)" );
+//         return x * prw(x, n - 1);
+//     }
+// }
+// console.log(prw(2,4));
+
+// let company = {
+//     sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
+//     development: {
+//         sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
+//         internals: [{name: 'Jack', salary: 1300}],
+//         aaaa: [{name: 'Jaaack', salary: 13000}, {name: "nnnn", salary: 100}],
+//     }
+// };
+//
+// function sumSalaries(department) {
+//     if (Array.isArray(department)) {
+//         return department.reduce((prev, current) => prev + current.salary, 0);
+//     } else {
+//         let sum = 0;
+//         for (let subdep of Object.values(department)) {
+//             sum += sumSalaries(subdep);
+//         }
+//         return sum;
+//     }
+// }
+//
+// console.log(sumSalaries(company));
+
+// ====================== WeakMap и WeakSet=============================
+
+
+// let weakmap = new Map();
+//
+// let deiv = {name: "deiv"};
+//
+// weakmap.set(deiv, "10");
+//
+// deiv = null;
+//
+// console.log(weakmap.values());
+// console.log(weakmap.keys());
+//
+// for (let v of weakmap){
+//     console.log(v);
+// }
+
+
+//==============================Генераторы ====================================
+// function* gen(n = 100) {
+//     let arr = [];
+//     for (let i = 0; i < n; i++) {
+//         arr.push(i);
+//     }
+//     for (let i = 0; i < n; i++) {
+//         let random = Math.floor(Math.random() * arr.length);
+//         let randomEl = arr[random];
+//         arr.splice(random, 1);
+//         yield randomEl;
+//     }
+//
+// }
+//
+// for (let value of gen(10)) {
+//     console.log(value);
+// }
+
+//==============================Асинхронные итераторы и генераторы ====================================
 
 
 
+//=========================revers string==========
 
+function stringRevers(str) {
+    return str.split("").reverse().join("") === str;
+}
 
-alert("nshan");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(stringRevers("baba"));
 
 
 
